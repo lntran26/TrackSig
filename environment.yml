@@ -1,0 +1,38 @@
+name: tracksig
+channels:
+        - conda-forge
+dependencies:
+        - python=2.7.*
+        - pip
+        - numpy
+        - scipy
+        - pyvcf
+        - matplotlib
+
+# also need to run command separately in terminal:
+# sudo cpan Bio::DB::Fasta
+# on WSL this might not work right away because it is lacking essential tools
+# such as 'make'. (clue: see warning/error message such as "'YAML' not installed")
+# Run this command to set up the system to work: sudo apt-get install build-essential
+# reference: https://stackoverflow.com/questions/22360091/how-to-fix-yaml-not-installed-when-installing-xmlsimple
+# https://johanlouwers.blogspot.com/2014/06/resolving-missing-yaml-issue-in-perl.html
+
+# also: sudo apt update && sudo apt upgrade is good to run in general
+
+# these were run but might not be needed (may not actually have solved the problem)
+# sudo apt-get install liblocal-lib-perl cpanminus build-essential
+# sudo apt install libanyevent-perl libclass-refresh-perl libcompiler-lexer-perl libdata-dump-perl libio-aio-perl libjson-perl libmoose-perl libpadwalker-perl libscalar-list-utils-perl libcoro-perl
+
+# seem like the main things to make this work is installing expat:
+# sudo apt-get install libexpat1-dev
+# then: sudo cpan XML::Parser
+# also: sudo apt-get install libxml-libxml-perl (this works instead of through cpan like cpan XML::LibXML)
+
+# Finally, R installation:
+# sudo apt install r-base-core
+# then R packages requirements:
+# sudo Rscript -e "install.packages('reshape2', repos='https://cran.rstudio.com')"
+# sudo Rscript -e "install.packages('ggplot2')"
+# sudo Rscript -e "install.packages('BiocManager')"
+# sudo Rscript -e "BiocManager::install('Biobase')"
+# sudo Rscript -e "install.packages('NMF')"
