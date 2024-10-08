@@ -3,5 +3,6 @@ data/*
 results_signature_trajectories/*
 saved_data/*
 simulated_data/*
+simulated_data_old/*
 *.ipynb
 sim_analysis_plots/*
