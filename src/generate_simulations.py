@@ -79,7 +79,7 @@ class RandomData(object):
 		"""
 		time_points = []
 
-		selected_signatures = signature_matrix[1:, np.where(np.intersect1d(signature_matrix[0, :], self._signatures))]
+		selected_signatures = signature_matrix[1:, np.where(np.isin(signature_matrix[0, :], self._signatures))[0]]
 
 		selected_signatures = selected_signatures.reshape(selected_signatures.shape[0], len(self._signatures)).astype(float)
 		for i in exposure.T:
